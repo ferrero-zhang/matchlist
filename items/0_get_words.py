@@ -11,7 +11,7 @@ def readItems():
     global term, tf_idf_bow
     tf_idf_bow = {}
     term = {}
-    with open('dim_items.txt', 'r') as f:
+    with open('../data/dim_items.txt', 'r') as f:
         while 1:
             line = f.readline()
             if not line:
@@ -32,7 +32,7 @@ def readItems():
     for item in tf_idf_bow:
         for word in tf_idf_bow[item]:
             tf_idf_bow[item][word] *= math.log(len(tf_idf_bow)*1.0/term[word])#IDF值
-    with open('tf_idf_bow.dat', 'wb') as f:
+    with open('../data/tf_idf_bow.dat', 'wb') as f:
         pickle.dump(tf_idf_bow, f)
 
 if __name__=="__main__":

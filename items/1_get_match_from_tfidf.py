@@ -11,11 +11,11 @@ item_info = {}
 
 def readItems():
     global tf_idf_bow, item_info
-    with open('tf_idf_bow.dat', 'rb') as f:
+    with open('../data/tf_idf_bow.dat', 'rb') as f:
         tf_idf_bow = pickle.load(f)
 
     item_info = {}
-    with open('dim_items.txt', 'r') as f:
+    with open('../data/dim_items.txt', 'r') as f:
         while 1:
             line = f.readline()
             if not line:
@@ -26,7 +26,7 @@ def readItems():
 
 def readCatMatch():
     global cat_match
-    with open('cat_match_sm.dat', 'rb') as f:
+    with open('../data/cat_match_sm.dat', 'rb') as f:
         cat_match = pickle.load(f)
 
 def calSimi(item1, item2):
@@ -47,8 +47,8 @@ def calSimi(item1, item2):
 def solve():
     global tf_idf_bow, identity_items, cat_match
 
-    with open('items_test_5.txt', 'r') as f:
-        with open('fm_submissions_test_simi.txt', 'w') as f3:
+    with open('../data/items_test_5.txt', 'r') as f:
+        with open('../data/fm_submissions_test_simi.txt', 'w') as f3:
             cnt = 0
             while 1:
                 line = f.readline()
